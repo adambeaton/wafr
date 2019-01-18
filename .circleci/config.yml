@@ -5,5 +5,7 @@ jobs:
       - image: circleci/python:3.6.2-stretch-browsers
     steps:
       - checkout
-      - run: pip install --upgrade pip
+      - run: sudo yum install virtualenv
+      - run: virtualenv .ve
+      - run: . .ve/bin/activate
       - run: pip3 install -r requirements/dev.txt
